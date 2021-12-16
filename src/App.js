@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import DisplayItems from "./components/DisplayItems";
+import NewItemForm from "./components/NewItemForm";
 
 function App() {
+  const [inventory, setInventory] = useState([]);
+  // const inventory = [
+  //   {
+  //     itemName: "Rice",
+  //     itemQuantity: "1",
+  //   },
+  //   {
+  //     itemName: "Wheat",
+  //     itemQuantity: "2",
+  //   },
+  // ];
+  function addToInventory(newItem) {
+    console.log(newItem);
+    setInventory((prevItems) => {
+      return [...prevItems, newItem];
+    });
+    console.log(inventory);
+  }
+  function increaseQuantity(id) {
+    inventory.forEach((element) => {
+      console.log(element.id);
+      if (element.id === id) {
+        var quantity = parseInt(element.itemQuantity);
+        quantity += 1;
+        element.itemQuantity = String(quantity);
+      }
+    });
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>INVENTORY MANAGER</h1>
+      <NewItemForm
+        currentItemsList={inventory}
+        onFormSubmission={addToInventory}
+      ></NewItemForm>
+      {/* {inventory.map((item) => (
+        <DisplayItems />
+      ))} */}
+      <DisplayItems
+        itemsList={inventory}
+        increaseQuantity={increaseQuantity}
+      ></DisplayItems>
     </div>
   );
 }

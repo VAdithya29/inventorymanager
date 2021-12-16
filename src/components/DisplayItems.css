@@ -1,0 +1,11 @@
+.frag {
+  background-color: darkslategrey;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.indEle {
+  padding: 10px;
+  margin: 5px;
+  width: 50%;
+}
