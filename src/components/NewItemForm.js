@@ -12,7 +12,11 @@ function NewItemForm(props) {
   }
   function formSubmitHandler(event) {
     event.preventDefault();
-    const addItem = { itemName, itemQuantity, id: Math.random().toString() };
+    const addItem = {
+      itemName,
+      itemQuantity,
+      itemId: Math.random().toString(),
+    };
     props.onFormSubmission(addItem);
     console.log("Submitted");
   }

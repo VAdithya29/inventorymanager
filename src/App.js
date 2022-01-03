@@ -1,7 +1,9 @@
 import "./App.css";
+import { Route, Link } from "react-router-dom";
 import { useState } from "react";
 import DisplayItems from "./components/DisplayItems";
 import NewItemForm from "./components/NewItemForm";
+import EditItemForm from "./components/EditItemForm";
 
 function App() {
   const [inventory, setInventory] = useState([]);
@@ -22,30 +24,24 @@ function App() {
     });
     console.log(inventory);
   }
-  function increaseQuantity(id) {
-    inventory.forEach((element) => {
-      console.log(element.id);
-      if (element.id === id) {
-        var quantity = parseInt(element.itemQuantity);
-        quantity += 1;
-        element.itemQuantity = String(quantity);
-      }
-    });
-  }
   return (
     <div className="App">
-      <h1>INVENTORY MANAGER</h1>
-      <NewItemForm
-        currentItemsList={inventory}
-        onFormSubmission={addToInventory}
-      ></NewItemForm>
-      {/* {inventory.map((item) => (
-        <DisplayItems />
-      ))} */}
-      <DisplayItems
-        itemsList={inventory}
-        increaseQuantity={increaseQuantity}
-      ></DisplayItems>
+      <Route path="/app">
+        <h1>INVENTORY MANAGER</h1>
+        <NewItemForm
+          currentItemsList={inventory}
+          onFormSubmission={addToInventory}
+        ></NewItemForm>
+        <h3>
+          <Link to="/disp">View All Items in Inventory</Link>
+        </h3>
+      </Route>
+      <Route path="/disp">
+        <DisplayItems itemsList={inventory}></DisplayItems>
+      </Route>
+      <Route path="/edititem/:itemid">
+        <EditItemForm currentItemsList={inventory}></EditItemForm>
+      </Route>
     </div>
   );
 }

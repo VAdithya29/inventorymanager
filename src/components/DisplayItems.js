@@ -1,22 +1,23 @@
+import { Link } from "react-router-dom";
 import "./DisplayItems.css";
 
 function DisplayItems(props) {
-  function increaseQuantity(item) {
-    console.log("Trying to increase quantity");
-    console.log(item.id);
-    props.increaseQuantity(item.id);
-  }
+  // function editItemHandler(event, props) {
+  //   event.preventDefault();
+  //   console.log("props.item.id");
+  //   console.log(props);
+  // }
   return (
     <div>
       {props.itemsList.map((item) => {
         return (
           <div className="frag">
             <div className="indEle">{item.itemName}</div>
-            <button>-</button>
             <div className="indEle">{item.itemQuantity}</div>
-            <button type="reset" onSubmit={increaseQuantity}>
-              +
-            </button>
+            <div className="indEle">{item.itemId}</div>
+            <div>
+              <Link to={`/edititem/${item.itemId}`}>Edit</Link>
+            </div>
           </div>
         );
       })}
