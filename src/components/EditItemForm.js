@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Card from "./Card";
 
 function EditItemForm(props) {
   const params = useParams();
@@ -25,25 +26,27 @@ function EditItemForm(props) {
     });
   }
   return (
-    <form onSubmit={updateItem}>
-      <div>
-        <label>Item Name</label>
-        <input
-          type="text"
-          onChange={namechangeHandler}
-          defaultValue={selectedItem.itemName}
-        ></input>
-      </div>
-      <div>
-        <label>Enter Quantity</label>
-        <input
-          type="number"
-          onChange={quantitychangeHandler}
-          defaultValue={selectedItem.itemQuantity}
-        ></input>
-      </div>
-      <button type="submit">Make Changes</button>
-    </form>
+    <Card>
+      <form onSubmit={updateItem}>
+        <div className="itemdetails">
+          <label>Item Name</label>
+          <input
+            type="text"
+            onChange={namechangeHandler}
+            defaultValue={selectedItem.itemName}
+          ></input>
+        </div>
+        <div>
+          <label>Enter Quantity</label>
+          <input
+            type="number"
+            onChange={quantitychangeHandler}
+            defaultValue={selectedItem.itemQuantity}
+          ></input>
+        </div>
+        <button type="submit">Make Changes</button>
+      </form>
+    </Card>
   );
 }
 

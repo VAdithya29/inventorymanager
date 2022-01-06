@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import Card from "./Card";
+import "./NewItemForm.css";
 function NewItemForm(props) {
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState("");
@@ -21,23 +22,25 @@ function NewItemForm(props) {
     console.log("Submitted");
   }
   return (
-    <form className="form" onSubmit={formSubmitHandler}>
-      <div className="itemname">
-        <div>
-          <label>Item Name</label>
-          <input type="text" onChange={nameChangeHandler}></input>
+    <Card>
+      <form className="form" onSubmit={formSubmitHandler}>
+        <div className="itemdetails">
+          <div>
+            <label>Item Name</label>
+            <input type="text" onChange={nameChangeHandler}></input>
+          </div>
+          <div>
+            <label>Enter Quantity</label>
+            <input
+              type="number"
+              increment="1"
+              onChange={quantityChangeHandler}
+            ></input>
+          </div>
+          <button type="submit">Add</button>
         </div>
-        <div>
-          <label>Enter Quantity</label>
-          <input
-            type="number"
-            increment="1"
-            onChange={quantityChangeHandler}
-          ></input>
-        </div>
-        <button type="submit">Add</button>
-      </div>
-    </form>
+      </form>
+    </Card>
   );
 }
 

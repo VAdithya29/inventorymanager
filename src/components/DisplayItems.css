@@ -1,11 +1,29 @@
-.frag {
-  background-color: beige;
+.itemelements {
   padding: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+.tablehead {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-weight: bolder;
 }
 .indEle {
-  padding: 10px;
-  margin: 5px;
-  width: 50%;
+  text-align: center;
+  justify-content: center;
+  width: 33%;
+}
+.editbutton {
+  background-color: rgba(114, 114, 202, 1);
+  width: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.editbutton:hover {
+  background-color: rgba(114, 114, 202, 0.8);
 }

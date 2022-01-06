@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Card from "./Card";
 import "./DisplayItems.css";
 
 function DisplayItems(props) {
@@ -9,16 +10,26 @@ function DisplayItems(props) {
   // }
   return (
     <div>
+      <Card>
+        <div className="tablehead">
+          <div className="indEle">Item</div>
+          <div className="indEle">Quantity</div>
+          <div className="indEle">Action</div>
+        </div>
+      </Card>
       {props.itemsList.map((item) => {
         return (
-          <div className="frag">
-            <div className="indEle">{item.itemName}</div>
-            <div className="indEle">{item.itemQuantity}</div>
-            <div className="indEle">{item.itemId}</div>
-            <div>
-              <Link to={`/edititem/${item.itemId}`}>Edit</Link>
+          <Card>
+            <div className="itemelements">
+              <div className="indEle">{item.itemName}</div>
+              <div className="indEle">{item.itemQuantity}</div>
+              <div className="indEle">
+                <Link to={`/edititem/${item.itemId}`}>
+                  <button className="editbutton">Edit</button>
+                </Link>
+              </div>
             </div>
-          </div>
+          </Card>
         );
       })}
     </div>
