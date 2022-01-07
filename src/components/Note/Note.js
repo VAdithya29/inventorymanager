@@ -6,7 +6,7 @@ function Note() {
     <div>
       <Card>
         <div className="indnote">
-          <input></input>
+          <input placeholder="Title"></input>
           <textarea></textarea>
         </div>
       </Card>
