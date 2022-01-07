@@ -1,10 +1,11 @@
 import "./App.css";
 import { Route } from "react-router-dom";
 import { useState } from "react";
-import DisplayItems from "./components/DisplayItems";
-import NewItemForm from "./components/NewItemForm";
-import EditItemForm from "./components/EditItemForm";
-import Navbar from "./components/Navbar";
+import DisplayItems from "./components/Items/DisplayItems";
+import NewItemForm from "./components/Items/NewItemForm";
+import EditItemForm from "./components/Items/EditItemForm";
+import Navbar from "./components/Navbar/Navbar";
+import Notes from "./components/Note/Notes";
 
 function App() {
   const [inventory, setInventory] = useState([]);
@@ -39,6 +40,9 @@ function App() {
       </Route>
       <Route path="/edititem/:itemid">
         <EditItemForm currentItemsList={inventory}></EditItemForm>
+      </Route>
+      <Route path="/notes">
+        <Notes></Notes>
       </Route>
     </div>
   );

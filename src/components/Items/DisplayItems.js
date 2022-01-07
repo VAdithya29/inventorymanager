@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Card from "./Card";
+import Card from "../Card/Card";
 import "./DisplayItems.css";
 
 function DisplayItems(props) {

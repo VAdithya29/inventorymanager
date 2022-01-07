@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Card from "./Card";
+import Card from "../Card/Card";
 
 function EditItemForm(props) {
   const params = useParams();

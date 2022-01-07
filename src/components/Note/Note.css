@@ -1,0 +1,9 @@
+.indnote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+textarea {
+  height: 100px;
+  margin: 5px;
+}
