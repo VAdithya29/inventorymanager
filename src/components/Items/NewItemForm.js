@@ -16,10 +16,11 @@ function NewItemForm(props) {
     const addItem = {
       itemName,
       itemQuantity,
-      itemId: Math.random().toString(),
     };
     props.onFormSubmission(addItem);
     console.log("Submitted");
+    setItemName("");
+    setItemQuantity("");
   }
   return (
     <Card>
@@ -27,7 +28,11 @@ function NewItemForm(props) {
         <div className="itemdetails">
           <div>
             <label>Item Name</label>
-            <input type="text" onChange={nameChangeHandler}></input>
+            <input
+              type="text"
+              onChange={nameChangeHandler}
+              value={itemName}
+            ></input>
           </div>
           <div>
             <label>Enter Quantity</label>
@@ -35,6 +40,7 @@ function NewItemForm(props) {
               type="number"
               increment="1"
               onChange={quantityChangeHandler}
+              value={itemQuantity}
             ></input>
           </div>
           <button type="submit">Add</button>

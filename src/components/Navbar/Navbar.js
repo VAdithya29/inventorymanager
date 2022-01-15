@@ -8,17 +8,17 @@ function Navbar() {
       <ul className="nb">
         <Link className="link" to={"/app"}>
           <li className="nbitems">
-            <button>ADD NEW ITEM</button>
+            <button className="btn">ADD NEW ITEM</button>
           </li>
         </Link>
         <Link className="link" to={"/disp"}>
           <li className="nbitems">
-            <button>VIEW ALL ITEMS</button>
+            <button className="btn">VIEW ALL ITEMS</button>
           </li>
         </Link>
         <Link className="link" to={"/notes"}>
           <li className="nbitems">
-            <button>NOTES</button>
+            <button className="btn">NOTES</button>
           </li>
         </Link>
       </ul>

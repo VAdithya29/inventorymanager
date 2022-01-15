@@ -18,7 +18,7 @@ ul {
   text-decoration: none;
   color: black;
 }
-button {
+.btn {
   background-color: inherit;
   width: 150px;
   border-radius: 10px;
@@ -26,6 +26,6 @@ button {
   border: none;
   border-radius: 10px;
 }
-BUTTON:hover {
+.btn:hover {
   background-color: rgba(114, 114, 202, 0.8);
 }
